@@ -1,10 +1,8 @@
 import React from 'react';
 //import classes from './MyButton.module.css';
 import styled from 'styled-components';
-import MyInput from '../input/MyInput';
 
 export const Button = styled.button`
-  margin-top: 1.5rem;
   padding: 0 1rem;
   background-color: var(--color-ui-base);
   box-shadow: var(--shadow);
