@@ -1,0 +1,49 @@
+.wrapper {
+	margin-top: 1.5rem;
+	border-radius: var(--radius);
+	background-color: car(--color-ui-base);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+}
+
+.post {
+	padding: 1rem;
+}
+
+.postTitleWrap {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.postID {
+	margin: 0.5rem;
+	font-size: var(--fs-md);
+	font-weight: var(--fw-bold);
+}
+
+.postTitle {
+	margin: 0.5rem;
+	font-size: var(--fs-md);
+	font-weight: var(--fw-bold);
+}
+
+.postBodyWrap {
+	display: block;
+	justify-content: start;
+	align-items: center;
+
+	@media (min-width: 767px) {
+		div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+
+.postBody {
+	margin: 0.5rem;
+	font-size: var(--fw-sm);
+	font-weight: var(--fw-light);
+}
