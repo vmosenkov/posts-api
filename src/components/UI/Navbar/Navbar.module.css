@@ -1,0 +1,25 @@
+.wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 2rem 0;
+ width: 100%;
+}
+
+.themeSwitcher {
+ color: var(--color-text);
+ font-size: var(--fw-sm);
+ text-transform: capitalize;
+ cursor: pointer;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.navbar__links {
+ margin: 5px;
+ text-decoration: none;
+ font-family: var(--family);
+ color: var(--color-text);
+ font-weight: var(--fw-light);
+}
