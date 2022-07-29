@@ -1,12 +1,12 @@
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import PostItem  from './PostItem';
+import PostItem  from './Post/PostItem/PostItem';
 
 const PostList = ({posts, title, remove}) => {
 
 	if (!posts.length) {
 		return (
-			<h1 style={{textAlign: 'center'}}>
+			<h1 style={{textAlign: 'center', marginTop: '20%'}}>
 				Хей, дружок-пирожок! Постов нет, но ты можешь его создать сам.
 			</h1>
 		)
