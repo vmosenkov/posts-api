@@ -1,8 +1,13 @@
 .myBtn {
- padding: 5px 15px;
- color: teal;
- font-size: 14px;
- background: transparent;
- border: 1px solid teal;
- cursor: pointer;
+	padding: 0 1rem;
+	background-color: var(--color-ui-base);
+	box-shadow: var(--shadow);
+	line-height: 2.5;
+	border-radius: var(--radius);
+	border: none;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: var(--color-text);
+	cursor: pointer;
 }
