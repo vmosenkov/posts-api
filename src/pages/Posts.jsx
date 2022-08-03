@@ -5,10 +5,12 @@ import { usePosts } from "../hooks/usePosts.js";
 
 /* Components */
 import { Main } from '../components/Main';
-import PostList from '../components/PostList';
-import PostForm from '../components/PostForm';
-import PostFilter from '../components/PostFilter';
 import MyModal from '../components/UI/MyModal/MyModal';
+
+/* Components - Post*/
+import PostList from '../components/Post/PostList/PostList';
+import PostForm from '../components/Post/PostForm/PostForm';
+import PostFilter from '../components/Post/PostFilter/PostFilter';
 
 /* Other */
 import MyButton from '../components/UI/button/MyButton';
@@ -72,7 +74,7 @@ function Posts() {
 					<PostForm create={createPost}/>
 				</MyModal>
 			
-			<PostFilter 
+			<PostFilter
 				filter={filter}
 				setFilter={setFilter}
 			/>
