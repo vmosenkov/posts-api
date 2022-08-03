@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import cl from './PostItem.module.css';
 
 /* Components UI */
 import MyDelButton from '../../UI/button/MyDelButton';
-import MyButton from '../../UI/button/MyDelButton';
+import MyButton from '../../UI/button/MyButton';
 
 
 const PostItem = (props) => {
+	const navigate = useNavigate();
 	return (
 		<div>
 			<article className={cl.wrapper}>
@@ -18,8 +20,10 @@ const PostItem = (props) => {
 					</div>
 					<div className={cl.postBodyWrap}>
 						<p className={cl.postBody}>{props.post.body}</p>
-						<MyButton>Открыть</MyButton>
-						<MyDelButton onClick={() => props.remove(props.post)}>Удалить</MyDelButton>
+						<MyButton onClick={() => navigate(`/posts/${props.post.id}`)}>Открыть</MyButton>
+						<MyDelButton onClick={() => props.remove(props.post)}>
+							Удалить
+						</MyDelButton>
 					</div>
 				</div>
 			</article>
