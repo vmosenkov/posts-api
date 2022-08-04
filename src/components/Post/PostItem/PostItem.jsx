@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import cl from './PostItem.module.css';
