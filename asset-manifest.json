@@ -1,0 +1,13 @@
+{
+  "main.css": "/posts-api/static/css/main.8857033b.chunk.css",
+  "main.js": "/posts-api/static/js/main.f1e55cc8.chunk.js",
+  "main.js.map": "/posts-api/static/js/main.f1e55cc8.chunk.js.map",
+  "static/js/1.921c5787.chunk.js": "/posts-api/static/js/1.921c5787.chunk.js",
+  "static/js/1.921c5787.chunk.js.map": "/posts-api/static/js/1.921c5787.chunk.js.map",
+  "runtime~main.js": "/posts-api/static/js/runtime~main.e8ed1065.js",
+  "runtime~main.js.map": "/posts-api/static/js/runtime~main.e8ed1065.js.map",
+  "static/css/main.8857033b.chunk.css.map": "/posts-api/static/css/main.8857033b.chunk.css.map",
+  "index.html": "/posts-api/index.html",
+  "precache-manifest.a06f4e78b49cd7729d57ca676b91ddf2.js": "/posts-api/precache-manifest.a06f4e78b49cd7729d57ca676b91ddf2.js",
+  "service-worker.js": "/posts-api/service-worker.js"
+}
