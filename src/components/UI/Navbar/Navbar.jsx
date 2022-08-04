@@ -17,7 +17,7 @@ export const Navbar = () => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 
-	const { isAuth, setIsAuth } = useContext(AuthContext);
+	const { /* isAuth */ setIsAuth } = useContext(AuthContext);
 
 
 	const logout = () => {
