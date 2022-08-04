@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import '../styles/App.css';
 import { useFetching } from "../hooks/useFetching.js";
 import { usePosts } from "../hooks/usePosts.js";
@@ -18,6 +18,8 @@ import PostService from '../API/PostService';
 import Loader from '../components/UI/Loader/Loader';
 import { getPageCount } from '../utils/pages';
 import Pagination from '../components/UI/pagination/pagination';
+import { useObserver } from '../hooks/useObserver';
+import MySelect from '../components/UI/MySelect';
 
 
 
@@ -29,17 +31,23 @@ function Posts() {
 	const [limit, setLimit] = useState(10);
 	const [page, setPage] = useState(1);
 	const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
+	const lastElement = useRef()
 
 	const [fetchPosts, isPostsLoading, postError] = useFetching(async (limit, page) => {
 		const response = await PostService.getAll(limit, page);
-		setPosts(response.data)
+		setPosts([...posts,...response.data])
 		const totalCount = response.headers['x-total-count'];
 		setTotalPages(getPageCount(totalCount, limit));
 	})
 	
+	useObserver(lastElement, page < totalPages, isPostsLoading, () => {
+		setPage(page + 1);
+	})
+	
+
 	useEffect(() => {
 		fetchPosts(limit, page)
-	}, []) //Отработает 1 раз  в момент монтирования компонента
+	}, [page, limit]) //Отработает 1 раз  в момент монтирования компонента
 	// Если вписать в [filter], то отработает на каждое  изменение filter
 	/* useEffect(() => {
 		fetchPosts()
@@ -61,7 +69,6 @@ function Posts() {
 
 	const changePage = (page) => {
 		setPage(page)
-		fetchPosts(limit, page)
 	}
 
 	return (
@@ -78,16 +85,35 @@ function Posts() {
 				filter={filter}
 				setFilter={setFilter}
 			/>
+			<MySelect
+				value={limit}
+				onChange={value => setLimit(value)}
+				defaultValue="Кол-во элементов на странице"
+				options={[
+					{value: 5, name: '5'},
+					{value: 10, name: '10'},
+					{value: 25, name: '25'},
+					{value: -1, name: 'Показать все посты'},
+				]}
+			/>
 			{postError &&
-				<div style={{textAlign: 'center', marginTop: '10%'}}>
+				<div style={{
+						textAlign: 'center', 
+						marginTop: '10%'
+					}}>
 					<h1>Произошла ошибка</h1>
-					<h1 style={{marginTop: '10px', color: 'red'}}>${postError}</h1>
+					<h1 style={{
+							marginTop: '10px', 
+							color: 'red'
+						}}>${postError}
+					</h1>
 				</div>
 				
 			}
-			{isPostsLoading
-				? <Loader/>
-				:<PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов по JS" />
+			<PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов по JS" />
+			<div ref={lastElement} style={{height:50, background: 'red'}}></div>
+			{isPostsLoading &&
+				<Loader/>
 			}
 			<Pagination
 				page={page}
