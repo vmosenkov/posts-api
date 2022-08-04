@@ -34,6 +34,14 @@ const AppRouter = () => {
 				)}
 				<Route path="/*" element={<Navigate to="/login" replace />} />
 			</Routes>
+
+			/* <Routes>
+				<Route path="/" element={<Homepage />} />
+				<Route path="/about" element={<Aboutpage />} />
+				<Route path="/posts" element={<Posts />} />
+				<Route path="/posts/:id" element={<PostIdPage />} />
+				<Route path="*" element={<Notfoundpage />} />
+			</Routes> */
 	);
 }
 
@@ -43,12 +51,3 @@ export default AppRouter;
 
 
 
-
-
-{/* <Routes>
-	<Route path="/" element={<Homepage />} />
-	<Route path="/about" element={<Aboutpage />} />
-	<Route path="/posts" element={<Posts />} />
-	<Route path="/posts/:id" element={<PostIdPage />} />
-	<Route path="*" element={<Notfoundpage />} />
-</Routes> */}
